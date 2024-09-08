@@ -1,14 +1,9 @@
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
-  connections: {
-    default: {
-      connector: 'mongoose',
-      settings: {
-        uri: env('DATABASE_URI'),
-      },
-      options: {
-        ssl: true,
-      },
-    },
-  },
+    connection: {
+        client: 'postgres',
+        connection: {
+            connectionString: env('DATABASE_PRIVATE_URL')
+        },
+        pool: { min: 0 }
+    }
 });
